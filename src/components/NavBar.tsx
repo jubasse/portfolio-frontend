@@ -1,19 +1,23 @@
 import { FC } from "react";
 import { useTheme } from "../hooks";
 import { NavLink } from "./NavLink";
+import { useTranslation } from "react-i18next";
 
 export const NavBar: FC = () => {
   const { darkMode, toggleDarkMode } = useTheme();
+  const { t: tNav } = useTranslation('common', {
+    keyPrefix: 'nav',
+  });
   return (
     <nav className="flex items-center navbar p-6">
       <div className="flex basis-5/12 pl-24">
-        <NavLink label="Julien METRAL" size="text-4xl" />
+        <NavLink label={tNav('title')} size="text-4xl" />
       </div>
       <div className="flex basis-6/12 items-center justify-center gap-10">
-        <NavLink label="Diplômes" size="text-xl" />
-        <NavLink label="Compétences" size="text-xl" />
-        <NavLink label="Formations" size="text-xl" />
-        <NavLink label="Expériences professionnelles" size="text-xl" />
+        <NavLink label={tNav('educationDegrees')} size="text-xl" />
+        <NavLink label={tNav('skills')} size="text-xl" />
+        <NavLink label={tNav('trainingCourses')} size="text-xl" />
+        <NavLink label={tNav('professionalExperiences')} size="text-xl" />
       </div>
       <div className="flex basis-1/12 items-center justify-center gap-10">
         {darkMode ? (
@@ -24,7 +28,7 @@ export const NavBar: FC = () => {
             data-hs-theme-click-value="light"
           >
             <svg
-              className="w-4 h-4"
+              className="w-6 h-6"
               width="16"
               height="16"
               fill="currentColor"
@@ -41,7 +45,7 @@ export const NavBar: FC = () => {
             data-hs-theme-click-value="dark"
           >
             <svg
-              className="w-4 h-4"
+              className="w-6 h-6"
               width="16"
               height="16"
               fill="currentColor"
