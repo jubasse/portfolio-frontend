@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 const navLinkClasses = [
   "cursor-pointer",
@@ -13,8 +13,12 @@ const navLinkClasses = [
 export interface NavLinkProps {
   label: string;
   size: "text-xl" | "text-4xl";
+  icon?: ReactNode;
 }
 
-export const NavLink: FC<NavLinkProps> = ({ label, size }) => {
-  return <h4 className={[...navLinkClasses, size].join(" ")}>{label}</h4>;
+export const NavLink: FC<NavLinkProps> = ({ label, size, icon }) => {
+  return <div className="flex gap-2 items-center">
+    {icon}
+    <h4 className={[...navLinkClasses, size].join(" ")}>{label}</h4>
+    </div>;
 };

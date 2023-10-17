@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useTheme } from "../hooks";
 import { NavLink } from "./NavLink";
 import { useTranslation } from "react-i18next";
+import { SchoolIcon } from "./icons";
 
 export const NavBar: FC = () => {
   const { darkMode, toggleDarkMode } = useTheme();
@@ -14,7 +15,7 @@ export const NavBar: FC = () => {
         <NavLink label={tNav('title')} size="text-4xl" />
       </div>
       <div className="flex basis-6/12 items-center justify-center gap-10">
-        <NavLink label={tNav('educationDegrees')} size="text-xl" />
+        <NavLink label={tNav('educationDegrees')} size="text-xl" icon={<SchoolIcon fill="white"/>} />
         <NavLink label={tNav('skills')} size="text-xl" />
         <NavLink label={tNav('trainingCourses')} size="text-xl" />
         <NavLink label={tNav('professionalExperiences')} size="text-xl" />
